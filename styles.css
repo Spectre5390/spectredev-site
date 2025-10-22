@@ -1,0 +1,451 @@
+/* ========== RESET & GLOBAL STYLE ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #0b0b0b;
+  color: #f5f5f5;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* ========== HEADER NAVBAR ========== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: #00b7ff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.navbar nav a {
+  margin-left: 25px;
+  color: #ccc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar nav a:hover {
+  color: #00b7ff;
+  transform: translateY(-2px);
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.9));
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 800px;
+  padding: 20px;
+  animation: fadeInUp 1.5s ease;
+}
+
+.hero-content h1 {
+  font-size: 3.2rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.hero-content h1 span {
+  color: #00b7ff;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #ccc;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 3rem;
+  border: 2px solid #00b7ff;
+  background-color: transparent;
+  color: #00b7ff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #00b7ff;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== GAME SHOWCASE ========== */
+main {
+  padding: 120px 60px;
+  background: #0b0b0b;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2em;
+  margin-bottom: 50px;
+  color: #00b7ff;
+}
+
+.game-carousel {
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  scroll-behavior: smooth;
+}
+
+.game-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+.game-carousel::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.15);
+  border-radius: 10px;
+}
+
+.game-card {
+  flex: 0 0 auto;
+  width: 260px;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+  transition: filter 0.3s ease;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+.game-card:hover img {
+  filter: brightness(100%);
+}
+.game-card .card-info {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+.game-card:hover .card-info {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========== ABOUT SECTION ========== */
+.about {
+  padding: 100px 60px;
+  background: #101010;
+  text-align: center;
+}
+.about-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.about h2 {
+  color: #00b7ff;
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+.about p {
+  color: #ddd;
+  line-height: 1.7;
+  font-size: 1.1em;
+}
+
+/* Lightbox overlay — fixed visibility fix */
+.lightbox {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* 👇 Default: completely invisible and non-interactive */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 2000;
+}
+
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.lightbox img {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+  animation: zoomIn 0.3s ease;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 2.5em;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.lightbox .close:hover {
+  color: #00b7ff;
+}
+
+/* ========== GAME PAGE STYLES ========== */
+
+.game-hero {
+  position: relative;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+}
+
+.game-hero video {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.game-hero .overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.9));
+  z-index: 2;
+}
+
+.game-hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 700px;
+  animation: fadeInUp 1s ease;
+}
+
+.game-hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #00b7ff;
+}
+
+.game-hero-content p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+/* Info section */
+.game-info {
+  padding: 100px 60px;
+  background: #0b0b0b;
+  text-align: center;
+}
+.game-info h2 {
+  color: #00b7ff;
+  margin-bottom: 20px;
+}
+.game-info p {
+  color: #ddd;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-size: 1.1em;
+}
+
+/* Store buttons */
+.store-links {
+  margin-top: 40px;
+}
+.store-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+.store-btn {
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.store-btn.steam { background: #1b2838; }
+.store-btn.epic { background: #2a2a2a; }
+.store-btn.itch { background: #fa5c5c; }
+
+.store-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Gallery */
+.gallery {
+  padding: 100px 60px;
+  background: #101010;
+  text-align: center;
+}
+.gallery h2 {
+  color: #00b7ff;
+  margin-bottom: 40px;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+.gallery-grid img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-grid img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+/* Downloads */
+.downloads {
+  padding: 100px 60px;
+  background: #0b0b0b;
+  text-align: center;
+}
+.downloads h2 {
+  color: #00b7ff;
+  margin-bottom: 20px;
+}
+.downloads p {
+  color: #ccc;
+  margin-bottom: 30px;
+}
+.download-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+.download-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  width: 300px;
+  text-decoration: none;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+.download-card img {
+  width: 100%;
+  border-radius: 10px;
+  filter: brightness(70%);
+  transition: filter 0.3s ease;
+}
+.download-card span {
+  position: absolute;
+  bottom: 10px; left: 0; width: 100%;
+  text-align: center;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+.download-card:hover {
+  transform: scale(1.05);
+}
+.download-card:hover img {
+  filter: brightness(100%);
+}
+.download-card:hover span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Back link */
+.back-section {
+  text-align: center;
+  padding: 80px 20px;
+  background: #0a0a0a;
+}
+
+
+/* ========== CONTACT SECTION =======*
