@@ -57,3 +57,20 @@ closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
 lightbox.addEventListener('click', e => {
   if (e.target === lightbox) lightbox.classList.remove('active');
 });
+
+// ========== STATIC HTML INCLUDES ==========
+async function loadHTML(id, file) {
+  try {
+    const res = await fetch(file);
+    const text = await res.text();
+    document.getElementById(id).innerHTML = text;
+  } catch (err) {
+    console.error("Error loading include:", file, err);
+  }
+}
+
+// Load header and footer dynamically
+window.addEventListener('DOMContentLoaded', () => {
+  loadHTML('header-include', '/includes/header.html');
+  loadHTML('footer-include', '/includes/footer.html');
+});

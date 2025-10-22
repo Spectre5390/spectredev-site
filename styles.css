@@ -448,4 +448,17 @@ main {
 }
 
 
-/* ========== CONTACT SECTION =======*
+/* ========== CONTACT SECTION =======*/
+.contact {
+  padding: 100px 60px;
+  background: #101010;
+  text-align: center;
+}
+.contact h2 {
+  color: #00b7ff;
+  margin-bottom: 20px;
+}
+.contact .cta-button {
+  padding: 1rem 3rem;
+  margin: 20px 0;
+}
