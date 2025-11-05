@@ -71,6 +71,7 @@ async function loadHTML(id, file) {
 
 // Load header and footer dynamically
 window.addEventListener('DOMContentLoaded', () => {
-  loadHTML('header-include', '/includes/header.html');
-  loadHTML('footer-include', '/includes/footer.html');
+  const basePath = location.pathname.includes('/games/') ? '../' : '';
+  loadHTML('header-include', `${basePath}includes/header.html`);
+  loadHTML('footer-include', `${basePath}includes/footer.html`);
 });
