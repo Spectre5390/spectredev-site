@@ -458,7 +458,29 @@ main {
   color: #00b7ff;
   margin-bottom: 20px;
 }
-.contact .cta-button {
-  padding: 1rem 3rem;
-  margin: 20px 0;
+.contact .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.contact .social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #00b7ff;
+  text-decoration: none;
+  font-size: 1.5em;
+  transition: all 0.3s ease;
+}
+
+.contact .social-link:hover {
+  background: #00b7ff;
+  color: #fff;
+  transform: translateY(-5px);
 }
