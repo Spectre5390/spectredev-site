@@ -377,6 +377,8 @@ main {
 }
 .gallery-grid img {
   width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
   border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -416,6 +418,8 @@ main {
 }
 .download-card img {
   width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
   border-radius: 10px;
   filter: brightness(70%);
   transition: filter 0.3s ease;
